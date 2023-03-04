@@ -1,2 +1,2 @@
 # Group_project_app
-# Project for IT Studies
+$ Project for IT Studies
