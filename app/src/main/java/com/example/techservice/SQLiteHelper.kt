@@ -2,6 +2,7 @@ package com.example.techservice
 
 import android.content.Context
 import android.content.ContentValues
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
@@ -21,6 +22,7 @@ class SQLiteHelper (context: Context) : SQLiteOpenHelper(context, DATABASE_NAME,
         //kolumny dla tab1
         const val USERNAME = "nazwaUzytkownika"
         const val PASSWORD = "haslo"
+        // jesli isadmin = 1 to ma uprawnienia admina
         const val ISADMIN = "uprawnieniaAdmina"
         //kolumny dla tab2 i tab3
         const val CLIENTNAME = "nazwaKlienta"
@@ -63,5 +65,56 @@ class SQLiteHelper (context: Context) : SQLiteOpenHelper(context, DATABASE_NAME,
         db.close()
         return success
 
+    }
+
+    fun addUSER(model: UserModel): Long {
+        val db = this.writableDatabase
+
+        val contentValues = ContentValues()
+
+        contentValues.put(USERNAME, model.username)
+        contentValues.put(PASSWORD, model.password)
+        contentValues.put(ISADMIN, model.isadmin)
+
+        val success = db.insert(TABLE1, null, contentValues)
+        db.close()
+        return success
+
+    }
+
+    fun getALLUSERS(): ArrayList<UserModel> {
+        val userList: ArrayList<UserModel> = ArrayList()
+        val selectQuery = "SELECT * FROM $TABLE1"
+        val db = this.readableDatabase
+
+        val cursor: Cursor?
+
+        try {
+            cursor = db.rawQuery(selectQuery, null)
+        } catch (e: Exception) {
+            e.printStackTrace()
+            db.execSQL(selectQuery)
+            return ArrayList()
+        }
+
+        var user: String
+        var password: String
+        var isadmin: Int
+        var id: Int
+
+        if (cursor.moveToFirst()){
+            do{
+                user = cursor.getString(1)
+                password = cursor.getString(2)
+                isadmin = cursor.getInt(3)
+                id = cursor.getInt(0)
+
+                val model = UserModel(username = user, password = password, isadmin = isadmin, id = id)
+                userList.add(model)
+            }
+            while (cursor.moveToNext())
+        }
+
+        return userList
     }
 }
