@@ -19,8 +19,9 @@
 
             <TextView
                 android:id="@+id/Admin_view_client_name"
-                android:layout_width="151dp"
-                android:layout_height="48dp"
+                android:layout_width="146dp"
+                android:layout_height="47dp"
+                android:gravity="center"
                 android:text="Name and vorname"
                 android:textAlignment="center"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -29,8 +30,9 @@
 
             <TextView
                 android:id="@+id/Admin_view_client_email"
-                android:layout_width="166dp"
-                android:layout_height="48dp"
+                android:layout_width="138dp"
+                android:layout_height="47dp"
+                android:gravity="center"
                 android:text="e-mail"
                 android:textAlignment="center"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -41,7 +43,7 @@
                 android:id="@+id/Admin_view_morebtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="More"
+                android:text="completed"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/Admin_view_client_email" />
