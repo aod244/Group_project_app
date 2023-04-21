@@ -5,6 +5,7 @@ import android.content.ContentValues
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import com.example.techservice.TaskModel as TaskModel
 
 class SQLiteHelper (context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
@@ -111,5 +112,20 @@ class SQLiteHelper (context: Context) : SQLiteOpenHelper(context, DATABASE_NAME,
         }
 
         return userList
+    }
+
+    fun addTASK(model: AddModel): Long {
+        val db = this.writableDatabase
+
+        val contentValues = ContentValues()
+
+        contentValues.put(CLIENTNAME, model.client)
+        contentValues.put(CLIENTMAIL, model.email)
+        contentValues.put(TASKDETAILS, model.details)
+
+        val success = db.insert(TABLE2, null, contentValues)
+        db.close()
+
+        return success
     }
 }

@@ -17,9 +17,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        //hide action bar
         supportActionBar?.hide()
         val loginbtn = findViewById<Button>(R.id.loginbutton)
         val exitbtn = findViewById<Button>(R.id.exitbutton)
+
 
         sqLiteHelper = SQLiteHelper(this)
         loginbtn.setOnClickListener {
@@ -29,6 +31,7 @@ class MainActivity : AppCompatActivity() {
             finish()
         }
     }
+    //funkcja wbudowana wywolana dwa razy do stworzenia usera i admina
     private fun addUser(){
         //ta funkcje dodalem admin i usera zwyklego
         val model = UserModel(username = "admin", password = "admin")
@@ -56,10 +59,14 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this,"Zalogowano", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, loggedasUser::class.java)
                 startActivity(intent)
+                usernameEditText.setText("")
+                passwordEditText.setText("")
             }else if(usernametext == "admin"){
                 Toast.makeText(this,"Zalogowano", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, loggedasadmin::class.java)
                 startActivity(intent)
+                usernameEditText.setText("")
+                passwordEditText.setText("")
             }
         }else{
             Toast.makeText(this,"Niepoprawna nazwa użytkownika lub hasło!", Toast.LENGTH_SHORT).show()
