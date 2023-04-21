@@ -34,6 +34,7 @@ class loggedasadmin : AppCompatActivity() {
         addservicebtn.setOnClickListener {
             val intent = Intent(this, admin_add_service::class.java)
             startActivity(intent)
+            finish()
         }
     }
 

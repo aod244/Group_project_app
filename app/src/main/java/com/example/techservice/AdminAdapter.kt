@@ -30,9 +30,16 @@ class AdminAdapter : RecyclerView.Adapter<AdminAdapter.AdminViewHolder>() {
     class AdminViewHolder(var view: View): RecyclerView.ViewHolder(view){
         private var name = view.findViewById<TextView>(R.id.Admin_view_client_name)
         private var email = view.findViewById<TextView>(R.id.Admin_view_client_email)
+        private var details = view.findViewById<TextView>(R.id.admin_view_client_details)
+        private val date = view.findViewById<TextView>(R.id.admin_view_client_date)
+
         fun bindView(model: TaskModel){
+            val datesplit = model.date
+            val list: List<String> = datesplit.split(" ")
             name.text = model.client
             email.text = model.email
+            details.text = model.details
+            date.text = list[0]
         }
     }
 }

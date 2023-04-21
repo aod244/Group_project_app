@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="50dp">
+    android:layout_height="75dp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="75dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="10dp"
@@ -22,32 +22,59 @@
             android:layout_height="match_parent">
 
             <TextView
+                android:id="@+id/admin_view_client_date"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginBottom="4dp"
+                android:gravity="center"
+                android:text="date"
+                android:textAlignment="gravity"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/Admin_view_morebtn"
+                app:layout_constraintStart_toEndOf="@+id/Admin_view_client_name" />
+
+            <TextView
+                android:id="@+id/admin_view_client_details"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="4dp"
+                android:text="details"
+                android:textAlignment="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/Admin_view_client_email"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
                 android:id="@+id/Admin_view_client_name"
                 android:layout_width="0dp"
-                android:layout_height="47dp"
+                android:layout_height="25dp"
+                android:layout_marginBottom="44dp"
                 android:text="Name and vorname"
-                android:textAlignment="viewStart"
+                android:textAlignment="center"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/Admin_view_client_email"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
                 android:id="@+id/Admin_view_client_email"
-                android:layout_width="0dp"
-                android:layout_height="47dp"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_marginBottom="44dp"
                 android:gravity="center"
                 android:text="e-mail"
-                android:textAlignment="center"
+                android:textAlignment="gravity"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/Admin_view_morebtn"
                 app:layout_constraintStart_toEndOf="@+id/Admin_view_client_name" />
 
             <Button
                 android:id="@+id/Admin_view_morebtn"
-                android:layout_width="wrap_content"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="5dp"
+                android:layout_marginBottom="8dp"
                 android:text="completed"
+                android:textSize="10sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/Admin_view_client_email" />

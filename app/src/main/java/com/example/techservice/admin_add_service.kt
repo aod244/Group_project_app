@@ -1,5 +1,6 @@
 package com.example.techservice
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.telecom.Call.Details
@@ -54,7 +55,8 @@ class admin_add_service : AppCompatActivity() {
             val status = sqLiteHelper.addTASK(task)
             if(status > -1){
                 Toast.makeText(this,"Task zlecony!", Toast.LENGTH_SHORT).show()
-                finish()
+                val intent = Intent(this, loggedasadmin::class.java)
+                startActivity(intent)
             }else{
                 Toast.makeText(this,"Błąd!", Toast.LENGTH_SHORT).show()
             }
