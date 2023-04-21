@@ -74,7 +74,6 @@ class SQLiteHelper (context: Context) : SQLiteOpenHelper(context, DATABASE_NAME,
 
         contentValues.put(USERNAME, model.username)
         contentValues.put(PASSWORD, model.password)
-        contentValues.put(ISADMIN, model.isadmin)
 
         val success = db.insert(TABLE1, null, contentValues)
         db.close()
@@ -99,17 +98,13 @@ class SQLiteHelper (context: Context) : SQLiteOpenHelper(context, DATABASE_NAME,
 
         var user: String
         var password: String
-        var isadmin: Int
-        var id: Int
 
         if (cursor.moveToFirst()){
             do{
                 user = cursor.getString(1)
                 password = cursor.getString(2)
-                isadmin = cursor.getInt(3)
-                id = cursor.getInt(0)
 
-                val model = UserModel(username = user, password = password, isadmin = isadmin, id = id)
+                val model = UserModel(username = user, password = password)
                 userList.add(model)
             }
             while (cursor.moveToNext())
