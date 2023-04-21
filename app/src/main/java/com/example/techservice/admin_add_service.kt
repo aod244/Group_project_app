@@ -27,7 +27,7 @@ class admin_add_service : AppCompatActivity() {
         //buttons
         val cancelBtn = findViewById<Button>(R.id.cancelButton)
         val addBtn = findViewById<Button>(R.id.addButton)
-
+        //listeners
         cancelBtn.setOnClickListener {
             finish()
         }
@@ -42,7 +42,7 @@ class admin_add_service : AppCompatActivity() {
         editEmail = findViewById(R.id.Add_client_email)
         editDetails = findViewById(R.id.Add_client_details)
     }
-
+    //function that transfer data from edit text to a model and into database
     private fun addTask(){
         val name = editName.text.toString()
         val email = editEmail.text.toString()

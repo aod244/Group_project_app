@@ -3,15 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="50dp">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -19,18 +23,17 @@
 
             <TextView
                 android:id="@+id/Admin_view_client_name"
-                android:layout_width="146dp"
+                android:layout_width="0dp"
                 android:layout_height="47dp"
-                android:gravity="center"
                 android:text="Name and vorname"
-                android:textAlignment="center"
+                android:textAlignment="viewStart"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/Admin_view_client_email"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
                 android:id="@+id/Admin_view_client_email"
-                android:layout_width="138dp"
+                android:layout_width="0dp"
                 android:layout_height="47dp"
                 android:gravity="center"
                 android:text="e-mail"
@@ -43,6 +46,7 @@
                 android:id="@+id/Admin_view_morebtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
                 android:text="completed"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

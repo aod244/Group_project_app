@@ -60,7 +60,6 @@ class SQLiteHelper (context: Context) : SQLiteOpenHelper(context, DATABASE_NAME,
         contentValues.put(CLIENTNAME, model.client)
         contentValues.put(CLIENTMAIL, model.email)
         contentValues.put(TASKDETAILS, model.details)
-        contentValues.put(ISTASKFINISHED, model.status)
 
         val success = db.insert(TABLE2, null, contentValues)
         db.close()
@@ -127,5 +126,41 @@ class SQLiteHelper (context: Context) : SQLiteOpenHelper(context, DATABASE_NAME,
         db.close()
 
         return success
+    }
+
+    fun getTASKS(): ArrayList<TaskModel> {
+        val taskList: ArrayList<TaskModel> = ArrayList()
+        val selectQuery = "SELECT * FROM $TABLE2"
+        val db = this.readableDatabase
+
+        val cursor: Cursor?
+
+        try {
+            cursor = db.rawQuery(selectQuery, null)
+        } catch (e: Exception) {
+            e.printStackTrace()
+            db.execSQL(selectQuery)
+            return ArrayList()
+        }
+
+        var client: String
+        var email: String
+        var details: String
+        var date:String
+        var id: Int
+
+        if (cursor.moveToFirst()){
+            do{
+                client = cursor.getString(1)
+                email = cursor.getString(2)
+                details = cursor.getString(3)
+                date = cursor.getString(5)
+                id = cursor.getInt(0)
+
+                val model = TaskModel(client= client, email=email,details=details,date=date,id=id)
+                taskList.add(model)
+            }while (cursor.moveToNext())
+        }
+        return taskList
     }
 }
