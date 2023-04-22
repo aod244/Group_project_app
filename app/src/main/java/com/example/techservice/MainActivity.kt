@@ -20,15 +20,11 @@ class MainActivity : AppCompatActivity() {
         //hide action bar
         supportActionBar?.hide()
         val loginbtn = findViewById<Button>(R.id.loginbutton)
-        val exitbtn = findViewById<Button>(R.id.exitbutton)
 
 
         sqLiteHelper = SQLiteHelper(this)
         loginbtn.setOnClickListener {
             login()
-        }
-        exitbtn.setOnClickListener {
-            finish()
         }
     }
     //funkcja wbudowana wywolana dwa razy do stworzenia usera i admina

@@ -29,6 +29,8 @@ class loggedasadmin : AppCompatActivity() {
         val addservicebtn = findViewById<Button>(R.id.admin_view_add_service)
         logoutbtn.setOnClickListener {
             Toast.makeText(this,"Wylogowano!", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
             finish()
         }
         addservicebtn.setOnClickListener {

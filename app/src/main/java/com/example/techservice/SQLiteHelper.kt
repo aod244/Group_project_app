@@ -163,4 +163,12 @@ class SQLiteHelper (context: Context) : SQLiteOpenHelper(context, DATABASE_NAME,
         }
         return taskList
     }
+
+    fun deleteJob(deleteID: Int): Int {
+        val db = this.writableDatabase
+
+        val success = db.delete(TABLE2, ID +" = "+deleteID, null)
+
+        return success
+    }
 }
