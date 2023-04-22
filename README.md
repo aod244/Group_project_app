@@ -6,5 +6,6 @@
 -data przyjęcia</BR>
 -opis usterki</BR>
 -nazwisko klienta</BR>
-a użytkownik bedzie mógł wrócić do danej sprawy kiedy będzie tego potrzebował
+## Dla kogo powstala
+-aplikacja powstała z myślą o serwisach komputerowych oraz ich klientów
 
