@@ -8,4 +8,6 @@
 -nazwisko klienta</BR>
 ## Dla kogo powstala
 -aplikacja powstała z myślą o serwisach komputerowych oraz ich klientów
+## Link do dema
+-https://youtu.be/ND9gt0Tzk1U
 
